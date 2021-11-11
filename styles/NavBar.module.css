@@ -1,0 +1,56 @@
+.navbar {
+  display: flex;
+  padding: 1rem 2rem 1rem 2rem !important;
+}
+
+#navbar-brand {
+  height: 10%;
+  max-height: 60px;
+  width: auto;
+}
+
+.navbar-nav {
+  margin: auto;
+  font-size: 1em;
+}
+
+.nav-item {
+  margin: auto 1rem auto 1rem;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: var(--bs-gray-600);
+}
+
+#btn-contact-us {
+  border-color: transparent;
+  border-width: 1.5px;
+  background-color: var(--bs-green) !important;
+  border-radius: 0.5em;
+  font-size: 1em;
+  font-weight: 450;
+  margin-left: 1em;
+}
+
+#btn-contact-us:hover {
+  border-color: var(--bs-green);
+  background-color: white !important;
+  color: var(--bs-green);
+}
+
+@media only screen and (max-width: 1200px) {
+  .nav-item {
+    padding: 1rem 0 1rem 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  #btn-contact-us {
+    margin-left: 0;
+  }
+
+  .dropdown-item {
+    text-align: center !important;
+  }
+}
