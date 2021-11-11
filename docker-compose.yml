@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  db:
+    build: ./db
+    container_name: db
+    volumes:
+      - ./db/backup/:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432
+
+  # server:
+  #   build: ./server
+  #   container_name: server
+  #   ports:
+  #     - 9191:9191
+
+  # frontend:
+  #   build: ./frontend
+  #   container_name: frontend
+  #   ports:
+  #     - 3000:3000
