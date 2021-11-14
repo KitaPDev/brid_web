@@ -1,6 +1,8 @@
 CREATE TABLE module (
     id SERIAL NOT NULL,
-    PRIMARY KEY (id)
+		label TEXT NOT NULL,
+    PRIMARY KEY (id),
+		UNIQUE (label)
 );
 
 CREATE TABLE content_module (
@@ -15,7 +17,9 @@ CREATE TABLE content_module (
 
 CREATE TABLE industry (
     id SERIAL NOT NULL,
-    PRIMARY KEY (id)
+		label TEXT NOT NULL,
+    PRIMARY KEY (id),
+		UNIQUE (label)
 );
 
 CREATE TABLE content_industry (
@@ -30,7 +34,9 @@ CREATE TABLE content_industry (
 
 CREATE TABLE news (
     id SERIAL NOT NULL,
-    PRIMARY KEY (id)
+		label TEXT NOT NULL,
+    PRIMARY KEY (id),
+		UNIQUE (label)
 );
 
 CREATE TABLE content_news (
@@ -79,7 +85,6 @@ CREATE TABLE i18n_module (
 	language_id INT NOT NULL,
 	label TEXT NOT NULL,
 	PRIMARY KEY (module_id, language_id),
-	UNIQUE (label),
     FOREIGN KEY (module_id) REFERENCES module (id)
         ON DELETE SET null,
     FOREIGN KEY (language_id) REFERENCES language (id)
@@ -89,9 +94,8 @@ CREATE TABLE i18n_module (
 CREATE TABLE i18n_content_module (
 	content_module_id INT NOT NULL,
 	language_id INT NOT NULL,
-	label TEXT NOT NULL,
+	content TEXT NOT NULL,
 	PRIMARY KEY (content_module_id, language_id),
-	UNIQUE (label),
     FOREIGN KEY (content_module_id) REFERENCES content_module (id)
         ON DELETE SET null,
     FOREIGN KEY (language_id) REFERENCES language (id)
@@ -101,9 +105,8 @@ CREATE TABLE i18n_content_module (
 CREATE TABLE i18n_industry (
 	industry_id INT NOT NULL,
 	language_id INT NOT NULL,
-	label TEXT NOT NULL,
+	content TEXT NOT NULL,
 	PRIMARY KEY (industry_id, language_id),
-	UNIQUE (label),
 	FOREIGN KEY (industry_id) REFERENCES industry (id)
 		ON DELETE SET null,
     FOREIGN KEY (language_id) REFERENCES language (id)
@@ -113,9 +116,8 @@ CREATE TABLE i18n_industry (
 CREATE TABLE i18n_content_industry (
 	content_industry_id INT NOT NULL,
 	language_id INT NOT NULL,
-	label TEXT NOT NULL,
+	content TEXT NOT NULL,
 	PRIMARY KEY (content_industry_id, language_id),
-	UNIQUE (label),
     FOREIGN KEY (content_industry_id) REFERENCES content_industry (id)
         ON DELETE SET null,
     FOREIGN KEY (language_id) REFERENCES language (id)
@@ -127,7 +129,6 @@ CREATE TABLE i18n_news (
 	language_id INT NOT NULL,
 	label TEXT NOT NULL,
 	PRIMARY KEY (news_id, language_id),
-	UNIQUE (label),
     FOREIGN KEY (news_id) REFERENCES news (id)
         ON DELETE SET null,
     FOREIGN KEY (language_id) REFERENCES language (id)
@@ -137,9 +138,8 @@ CREATE TABLE i18n_news (
 CREATE TABLE i18n_content_news (
 	content_news_id INT NOT NULL,
 	language_id INT NOT NULL,
-	label TEXT NOT NULL,
+	content TEXT NOT NULL,
 	PRIMARY KEY (content_news_id, language_id),
-	UNIQUE (label),
     FOREIGN KEY (content_news_id) REFERENCES content_news (id)
         ON DELETE SET null,
     FOREIGN KEY (language_id) REFERENCES language (id)
