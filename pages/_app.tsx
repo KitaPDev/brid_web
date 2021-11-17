@@ -4,6 +4,7 @@ import Head from "next/head";
 import NavBar from "../components/NavBar/NavBar";
 
 import { appWithTranslation } from "next-i18next";
+import { GetStaticPropsContext } from "next";
 
 const MODULES = [
   "Accounting",
@@ -41,3 +42,5 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default appWithTranslation(MyApp);
+
+export const getStaticProps = async (context: GetStaticPropsContext) => {};
