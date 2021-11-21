@@ -9,7 +9,7 @@ export default async function handle(
     let careers = await prisma.i18nCareer.findMany({
       where: {
         language: {
-          isoTwoLetter: "en",
+          isoTwoLetter: "th",
         },
       },
     });

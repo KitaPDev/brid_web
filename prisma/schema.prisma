@@ -11,53 +11,29 @@ datasource db {
 }
 
 model Module {
-  id            Int             @id @default(autoincrement())
-  label         String          @unique
-  contentModule ContentModule[]
-  i18nModule    I18nModule[]
-}
-
-model ContentModule {
-  id                Int                 @id @default(autoincrement())
-  module            Module              @relation(fields: [moduleId], references: [id])
-  moduleId          Int
-  displayOrder      Int
-  mediaPath         String             @default("")
-  i18nContentModule I18nContentModule[]
+  id           Int          @id @default(autoincrement())
+  label        String       @unique
+  displayOrder Int          @default(-1)
+  mediaPath    String       @default("")
+  i18nModule   I18nModule[]
 }
 
 model Industry {
-  id              Int               @id @default(autoincrement())
-  label           String            @unique
-  contentIndustry ContentIndustry[]
-  i18nIndustry    I18nIndustry[]
-}
-
-model ContentIndustry {
-  id                  Int                   @id @default(autoincrement())
-  industry            Industry              @relation(fields: [industryId], references: [id])
-  industryId          Int
-  displayOrder        Int
-  mediaPath           String               @default("")
-  i18nContentIndustry I18nContentIndustry[]
+  id           Int            @id @default(autoincrement())
+  label        String         @unique
+  displayOrder Int            @default(-1)
+  mediaPath    String         @default("")
+  i18nIndustry I18nIndustry[]
 }
 
 model News {
-  id          Int           @id @default(autoincrement())
-  label       String        @unique
-  contentNews ContentNews[]
-  i18nNews    I18nNews[]
-}
-
-model ContentNews {
-  id              Int               @id @default(autoincrement())
-  news            News              @relation(fields: [newsId], references: [id])
-  newsId          Int
-  displayOrder    Int
-  mediaPath       String           @default("")
-  youtubeEmbedId  String
-  publishedAt     DateTime          @default(now())
-  i18nContentNews I18nContentNews[]
+  id             Int        @id @default(autoincrement())
+  label          String     @unique
+  displayOrder   Int        @default(-1)
+  mediaPath      String     @default("")
+  youtubeEmbedId String     @default("")
+  postedAt       DateTime   @default(now())
+  i18nNews       I18nNews[]
 }
 
 model Career {
@@ -74,21 +50,18 @@ model Contact {
   email            String
   phoneNumber      String
   message          String
-  createdAt        DateTime
+  createdAt        DateTime @default(now())
 }
 
 model Language {
-  id                  Int                   @id @default(autoincrement())
-  nativeName          String                @unique
-  englishName         String                @unique
-  isoTwoLetter        String                @unique
-  i18nModule          I18nModule[]
-  i18nContentModule   I18nContentModule[]
-  i18nIndustry        I18nIndustry[]
-  i18nContentIndustry I18nContentIndustry[]
-  i18nNews            I18nNews[]
-  i18nContentNews     I18nContentNews[]
-  i18nCareer          I18nCareer[]
+  id           Int            @id @default(autoincrement())
+  nativeName   String         @unique
+  englishName  String         @unique
+  isoTwoLetter String         @unique
+  i18nModule   I18nModule[]
+  i18nIndustry I18nIndustry[]
+  i18nNews     I18nNews[]
+  i18nCareer   I18nCareer[]
 }
 
 model I18nModule {
@@ -96,19 +69,10 @@ model I18nModule {
   moduleId   Int
   language   Language @relation(fields: [languageId], references: [id])
   languageId Int
-  label      String
+  label      String   @default("")
+  content    String   @default("")
 
   @@id([moduleId, languageId])
-}
-
-model I18nContentModule {
-  contentModule   ContentModule @relation(fields: [contentModuleId], references: [id])
-  contentModuleId Int
-  language        Language      @relation(fields: [languageId], references: [id])
-  languageId      Int
-  content         String
-
-  @@id([contentModuleId, languageId])
 }
 
 model I18nIndustry {
@@ -116,19 +80,10 @@ model I18nIndustry {
   industryId Int
   language   Language @relation(fields: [languageId], references: [id])
   languageId Int
-  label      String
+  label      String   @default("")
+  content    String   @default("")
 
   @@id([industryId, languageId])
-}
-
-model I18nContentIndustry {
-  contentIndustry   ContentIndustry @relation(fields: [contentIndustryId], references: [id])
-  contentIndustryId Int
-  language          Language        @relation(fields: [languageId], references: [id])
-  languageId        Int
-  content           String
-
-  @@id([contentIndustryId, languageId])
 }
 
 model I18nNews {
@@ -136,19 +91,10 @@ model I18nNews {
   newsId     Int
   language   Language @relation(fields: [languageId], references: [id])
   languageId Int
-  label      String
+  label      String   @default("")
+  content    String   @default("")
 
   @@id([newsId, languageId])
-}
-
-model I18nContentNews {
-  contentNews   ContentNews @relation(fields: [contentNewsId], references: [id])
-  contentNewsId Int
-  language      Language    @relation(fields: [languageId], references: [id])
-  languageId    Int
-  content       String
-
-  @@id([contentNewsId, languageId])
 }
 
 model I18nCareer {

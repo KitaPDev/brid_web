@@ -14,7 +14,7 @@ export default async function handle(
         i18nNews: {
           where: {
             language: {
-              isoTwoLetter: "en",
+              isoTwoLetter: "th",
             },
           },
         },
