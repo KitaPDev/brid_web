@@ -1,13 +1,13 @@
-export interface IIndustry {
+export interface Industry {
   id: number;
-  languageID: number;
+  languageId: number;
   label: string;
 }
 
-export interface IIndustryContent {
+export interface IndustryContent {
   id: number;
-  industryID: number;
-  languageID: number;
+  industryId: number;
+  languageId: number;
   displayOrder: number;
   mediaPath: string;
   content: string;

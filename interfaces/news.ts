@@ -1,16 +1,16 @@
-export interface INews {
+export interface News {
   id: number;
-  languageID: number;
+  languageId: number;
   label: string;
 }
 
-export interface INewsContent {
+export interface NewsContent {
   id: number;
-  newsID: number;
-  languageID: number;
+  newsId: number;
+  languageId: number;
   displayOrder: number;
   mediaPath: string;
-  youtubeEmbedID: string;
+  youtubeEmbedId: string;
   tsPublished: Date;
   content: string;
 }

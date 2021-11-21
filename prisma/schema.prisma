@@ -22,7 +22,7 @@ model ContentModule {
   module            Module              @relation(fields: [moduleId], references: [id])
   moduleId          Int
   displayOrder      Int
-  mediaPath         String?
+  mediaPath         String             @default("")
   i18nContentModule I18nContentModule[]
 }
 
@@ -38,7 +38,7 @@ model ContentIndustry {
   industry            Industry              @relation(fields: [industryId], references: [id])
   industryId          Int
   displayOrder        Int
-  mediaPath           String?
+  mediaPath           String               @default("")
   i18nContentIndustry I18nContentIndustry[]
 }
 
@@ -54,7 +54,7 @@ model ContentNews {
   news            News              @relation(fields: [newsId], references: [id])
   newsId          Int
   displayOrder    Int
-  mediaPath       String
+  mediaPath       String           @default("")
   youtubeEmbedId  String
   publishedAt     DateTime          @default(now())
   i18nContentNews I18nContentNews[]

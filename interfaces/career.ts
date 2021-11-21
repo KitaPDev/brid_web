@@ -1,7 +1,7 @@
-export interface ICareer {
+export interface Career {
   id: number;
   minYearExp: number;
-  languageID: number;
+  languageId: number;
   title: string;
   description: string;
   requiredSkills: string;

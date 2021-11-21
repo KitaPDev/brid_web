@@ -1,14 +1,14 @@
-export interface IModule {
+export interface Module {
   id: number;
-  languageID: number;
+  languageId: number;
   label: string;
 }
 
-export interface IModuleContent {
+export interface ModuleContent {
   id: number;
-  moduleID: number;
-  languageID: number;
+  moduleId: number;
+  languageId?: number;
   displayOrder: number;
-  mediaPath: string;
-  content: string;
+  mediaPath?: string;
+  content?: string;
 }

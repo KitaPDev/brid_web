@@ -1,28 +1,22 @@
-import { languages } from "./languages";
-import { modules } from "./modules";
-import { industries } from "./industries";
+import { languages } from "./seeds/languages";
+import { modules } from "./seeds/modules";
+import { industries } from "./seeds/industries";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 async function main() {
-  for (let language of languages) {
-    await prisma.language.create({
-      data: language,
-    });
-  }
+  await prisma.language.createMany({
+    data: languages,
+  });
 
-  for (let module of modules) {
-    await prisma.module.create({
-      data: module,
-    });
-  }
+  await prisma.module.createMany({
+    data: modules,
+  });
 
-  for (let industry of industries) {
-    await prisma.industry.create({
-      data: industry,
-    });
-  }
+  await prisma.industry.createMany({
+    data: industries,
+  });
 }
 
 main()
