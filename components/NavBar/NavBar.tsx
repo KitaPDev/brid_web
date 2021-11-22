@@ -4,12 +4,12 @@ import Link from "next/link";
 import { GoChevronDown } from "react-icons/go";
 import { FiMenu } from "react-icons/fi";
 import { GrClose } from "react-icons/gr";
-import { IModule } from "../../interfaces/module";
-import { IIndustry } from "../../interfaces/industry";
+import { ModuleData } from "../../interfaces/module";
+import { IndustryData } from "../../interfaces/industry";
 
 interface NavBarProps {
-  modules: IModule[];
-  industries: IIndustry[];
+  modules: ModuleData[];
+  industries: IndustryData[];
 }
 
 const NavBar: FunctionComponent<NavBarProps> = ({ modules, industries }) => {

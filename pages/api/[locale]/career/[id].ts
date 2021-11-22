@@ -5,16 +5,19 @@ export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  const { id } = req.query;
+
   if (req.method === "GET") {
-    let careers = await prisma.i18nCareer.findMany({
+    let career = await prisma.i18nCareer.findFirst({
       where: {
+        careerId: parseInt(id[0]),
         language: {
-          isoTwoLetter: "en",
+          isoTwoLetter: req.url?.split("/")[2],
         },
       },
     });
 
-    res.status(200).json({ data: careers });
+    res.status(200).json({ data: career });
   } else {
     throw new Error(
       `The HTTP ${req.method} method is not supported at this route.`

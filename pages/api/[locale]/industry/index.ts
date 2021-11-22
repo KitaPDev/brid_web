@@ -14,7 +14,7 @@ export default async function handle(
         i18nIndustry: {
           where: {
             language: {
-              isoTwoLetter: "th",
+              isoTwoLetter: req.url?.split("/")[2],
             },
           },
         },

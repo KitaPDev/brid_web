@@ -2,7 +2,7 @@ export const languages = [
   {
     nativeName: "English",
     englishName: "English",
-    isoTwoLetter: "en",
+    isoTwoLetter: req.url?.split("/")[2],
   },
   {
     nativeName: "ไทย",
