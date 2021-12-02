@@ -89,36 +89,6 @@ function NavBar() {
               )}
             </div>
           </li>
-          <li>
-            <div
-              className="group relative p-1 sm:p-2 pl-0 sm:pr-1 ml-auto w-min"
-              onMouseOver={() => setIsIndustriesOpen(true)}
-              onMouseLeave={() => setIsIndustriesOpen(false)}
-            >
-              <button className="btn-nav-dropdown">
-                {t("industries")}{" "}
-                <GoChevronDown className="ml-1 transition-all group-hover:rotate-180" />
-              </button>
-
-              {isIndustriesOpen ? (
-                <div
-                  className="nav-dropdown-menu"
-                  tabIndex={-1}
-                  onMouseOver={() => setIsIndustriesOpen(true)}
-                >
-                  {industries.map((i) => (
-                    <Link href={"/industry/" + i.id}>
-                      <div className="nav-dropdown-item" tabIndex={-1}>
-                        {i.label}
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-              ) : (
-                <></>
-              )}
-            </div>
-          </li>
           <li
             className="p-1 ml-auto w-min
             sm:p-2 sm:pr-1"
