@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ContactData } from "../../../../interfaces/contact";
-import { prisma } from "../../../../lib/prisma";
-import { regex } from "../../../../lib/regex";
+import { ContactData } from "../../../interfaces/contact";
+import { prisma } from "../../../lib/prisma";
+import { regex } from "../../../lib/regex";
 
 export default async function handle(
   req: NextApiRequest,
@@ -10,21 +10,14 @@ export default async function handle(
   if (req.method === "POST") {
     let body = req.body;
 
-    if (!regex.email.test(body.email)) {
+    const c: ContactData = req.body;
+
+    if (!regex.email.test(c.email)) {
       return res.status(400).send("Invalid email address.");
     }
-    if (!regex.phoneNumber.test(body.phone_number)) {
+    if (!regex.phoneNumber.test(c.phoneNumber)) {
       return res.status(400).send("Invalid phone number.");
     }
-
-    const c: ContactData = {
-      firstName: body.first_name,
-      lastName: body.last_name,
-      organizationName: body.organization_name,
-      email: body.email,
-      phoneNumber: body.phone_number,
-      message: body.message,
-    };
 
     let contact = await prisma.contact.create({
       data: {
@@ -47,7 +40,7 @@ export default async function handle(
       },
     });
 
-    res.status(201).json({ data: contact });
+    res.status(201).json(contact);
   } else {
     throw new Error(
       `The HTTP ${req.method} method is not supported at this route.`

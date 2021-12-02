@@ -10,69 +10,64 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Module {
-  id           Int          @id @default(autoincrement())
-  label        String       @unique
-  displayOrder Int          @default(-1)
-  mediaPath    String       @default("")
-  i18nModule   I18nModule[]
-}
-
-model Industry {
-  id           Int            @id @default(autoincrement())
-  label        String         @unique
-  displayOrder Int            @default(-1)
-  mediaPath    String         @default("")
-  i18nIndustry I18nIndustry[]
-}
-
-model News {
-  id             Int        @id @default(autoincrement())
-  label          String     @unique
-  displayOrder   Int        @default(-1)
-  mediaPath      String     @default("")
-  youtubeEmbedId String     @default("")
-  postedAt       DateTime   @default(now())
-  i18nNews       I18nNews[]
-}
-
-model Career {
-  id         Int          @id @default(autoincrement())
-  minYearExp Float
-  i18nCareer I18nCareer[]
-}
-
-model Contact {
-  id               Int      @id @default(autoincrement())
-  firstName        String
-  lastName         String
-  organizationName String
-  email            String
-  phoneNumber      String
-  message          String
-  createdAt        DateTime @default(now())
-}
-
 model Language {
-  id           Int            @id @default(autoincrement())
-  nativeName   String         @unique
-  englishName  String         @unique
-  isoTwoLetter String         @unique
-  i18nModule   I18nModule[]
-  i18nIndustry I18nIndustry[]
-  i18nNews     I18nNews[]
-  i18nCareer   I18nCareer[]
+  id                  Int                   @id @default(autoincrement())
+  nativeName          String                @unique
+  englishName         String                @unique
+  isoTwoLetter        String                @unique
+  i18nModule          I18nModule[]
+  i18nContentModule   I18nContentModule[]
+  i18nIndustry        I18nIndustry[]
+  i18nContentIndustry I18nContentIndustry[]
+  i18nNews            I18nNews[]
+  i18nContentNews     I18nContentNews[]
+  i18nCareer          I18nCareer[]
+}
+
+// Module
+model Module {
+  id            Int             @id @default(autoincrement())
+  label         String          @unique
+  contentModule ContentModule[]
+  i18nModule    I18nModule[]
 }
 
 model I18nModule {
-  module     Module   @relation(fields: [moduleId], references: [id])
-  moduleId   Int
-  language   Language @relation(fields: [languageId], references: [id])
-  languageId Int
-  label      String   @default("")
-  content    String   @default("")
+  module      Module   @relation(fields: [moduleId], references: [id])
+  moduleId    Int
+  language    Language @relation(fields: [languageId], references: [id])
+  languageId  Int
+  label       String
+  description String?
 
   @@id([moduleId, languageId])
+}
+
+model ContentModule {
+  id                Int                 @id @default(autoincrement())
+  module            Module              @relation(fields: [moduleId], references: [id])
+  moduleId          Int
+  displayOrder      Int
+  mediaPath         String?
+  i18nContentModule I18nContentModule[]
+}
+
+model I18nContentModule {
+  contentModule   ContentModule @relation(fields: [contentModuleId], references: [id])
+  contentModuleId Int
+  language        Language      @relation(fields: [languageId], references: [id])
+  languageId      Int
+  content         String
+
+  @@id([contentModuleId, languageId])
+}
+
+// Industry
+model Industry {
+  id              Int               @id @default(autoincrement())
+  label           String            @unique
+  contentIndustry ContentIndustry[]
+  i18nIndustry    I18nIndustry[]
 }
 
 model I18nIndustry {
@@ -80,10 +75,37 @@ model I18nIndustry {
   industryId Int
   language   Language @relation(fields: [languageId], references: [id])
   languageId Int
-  label      String   @default("")
-  content    String   @default("")
+  label      String
 
   @@id([industryId, languageId])
+}
+
+model ContentIndustry {
+  id                  Int                   @id @default(autoincrement())
+  industry            Industry              @relation(fields: [industryId], references: [id])
+  industryId          Int
+  displayOrder        Int
+  mediaPath           String?
+  i18nContentIndustry I18nContentIndustry[]
+}
+
+model I18nContentIndustry {
+  contentIndustry   ContentIndustry @relation(fields: [contentIndustryId], references: [id])
+  contentIndustryId Int
+  language          Language        @relation(fields: [languageId], references: [id])
+  languageId        Int
+  content           String
+
+  @@id([contentIndustryId, languageId])
+}
+
+// News
+model News {
+  id          Int           @id @default(autoincrement())
+  label       String        @unique
+  postedAt    DateTime      @default(now())
+  contentNews ContentNews[]
+  i18nNews    I18nNews[]
 }
 
 model I18nNews {
@@ -91,10 +113,38 @@ model I18nNews {
   newsId     Int
   language   Language @relation(fields: [languageId], references: [id])
   languageId Int
-  label      String   @default("")
-  content    String   @default("")
+  label      String
 
   @@id([newsId, languageId])
+}
+
+model ContentNews {
+  id              Int               @id @default(autoincrement())
+  news            News              @relation(fields: [newsId], references: [id])
+  newsId          Int
+  displayOrder    Int
+  mediaPath       String
+  youtubeEmbedId  String
+  publishedAt     DateTime          @default(now())
+  i18nContentNews I18nContentNews[]
+}
+
+model I18nContentNews {
+  contentNews   ContentNews @relation(fields: [contentNewsId], references: [id])
+  contentNewsId Int
+  language      Language    @relation(fields: [languageId], references: [id])
+  languageId    Int
+  content       String
+
+  @@id([contentNewsId, languageId])
+}
+
+// Career
+model Career {
+  id         Int          @id @default(autoincrement())
+  minYearExp Float
+  label      String       @unique
+  i18nCareer I18nCareer[]
 }
 
 model I18nCareer {
@@ -103,9 +153,21 @@ model I18nCareer {
   language        Language @relation(fields: [languageId], references: [id])
   languageId      Int
   title           String   @unique
-  description     String
+  description     String?
   requiredSkills  String
   preferredSkills String
 
   @@id([careerId, languageId])
+}
+
+// Contact
+model Contact {
+  id               Int      @id @default(autoincrement())
+  firstName        String
+  lastName         String
+  organizationName String
+  email            String
+  phoneNumber      String
+  message          String
+  createdAt        DateTime
 }

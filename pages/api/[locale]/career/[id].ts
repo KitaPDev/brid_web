@@ -8,16 +8,18 @@ export default async function handle(
   const { id } = req.query;
 
   if (req.method === "GET") {
+    const currentLocale = req.url?.split("/")[2];
+
     let career = await prisma.i18nCareer.findFirst({
       where: {
         careerId: parseInt(id[0]),
         language: {
-          isoTwoLetter: req.url?.split("/")[2],
+          isoTwoLetter: currentLocale,
         },
       },
     });
 
-    res.status(200).json({ data: career });
+    res.status(200).json(career);
   } else {
     throw new Error(
       `The HTTP ${req.method} method is not supported at this route.`

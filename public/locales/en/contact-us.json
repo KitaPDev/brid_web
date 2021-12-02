@@ -1,0 +1,11 @@
+{
+  "title": "Contact Us",
+  "subtitle": "Thank you for your interest in our services. Please fill the form below so that we can get back to you ASAP.",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "organizationName": "Organization Name",
+  "email": "Email",
+  "phoneNumber": "Phone Number",
+  "message": "Message",
+  "submit": "Submit"
+}

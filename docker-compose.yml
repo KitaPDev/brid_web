@@ -6,6 +6,7 @@ services:
     container_name: db
     volumes:
       - ./db/backup/:/docker-entrypoint-initdb.d/
+      - ./db/data:/var/lib/postgresql/data
     ports:
       - 5432:5432
 

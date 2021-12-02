@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ModuleData } from "../../../../interfaces/module";
+import { ContentModuleData, ModuleData } from "../../../../interfaces/module";
 import { prisma } from "../../../../lib/prisma";
 
 export default async function handle(
@@ -8,13 +8,26 @@ export default async function handle(
 ) {
   if (req.method === "GET") {
     let result: ModuleData[] = [];
+    const currentLocale = req.url?.split("/")[2];
 
     let modules = await prisma.module.findMany({
       include: {
         i18nModule: {
           where: {
             language: {
-              isoTwoLetter: req.url?.split("/")[2],
+              isoTwoLetter: currentLocale,
+            },
+          },
+        },
+      },
+    });
+
+    let contentModules = await prisma.contentModule.findMany({
+      include: {
+        i18nContentModule: {
+          where: {
+            language: {
+              isoTwoLetter: currentLocale,
             },
           },
         },
@@ -29,17 +42,33 @@ export default async function handle(
       let label = module.label;
       if (i18nModule) label = i18nModule.label;
 
+      let contentData: ContentModuleData[] = [];
+      contentModules.forEach((cm) => {
+        if (cm.moduleId === module.id) {
+          let content: ContentModuleData = {
+            id: cm.id,
+            moduleId: module.id,
+            displayOrder: cm.displayOrder,
+            mediaPath: cm.mediaPath || "",
+            content:
+              cm.i18nContentModule.find((icm) => icm.contentModuleId === cm.id)
+                ?.content || "",
+          };
+
+          contentData.push(content);
+        }
+      });
+
       result.push({
         id: module.id,
         languageId: i18nModule?.languageId,
         label: label,
-        displayOrder: module.displayOrder,
-        mediaPath: module.mediaPath,
-        content: i18nModule?.content,
+        description: i18nModule?.description || "",
+        contentData: contentData,
       });
     });
 
-    res.status(200).json({ data: result });
+    res.status(200).json(result);
   } else {
     throw new Error(
       `The HTTP ${req.method} method is not supported at this route.`

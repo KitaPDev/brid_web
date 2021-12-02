@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.hero-home {
+  @apply w-full relative bg-planetone aspect-w-16 aspect-h-6 bg-cover mb-8;
+}
+
+.btn-nav-dropdown {
+  @apply flex justify-center items-center p-2 rounded-lg transition-all w-max
+  group-hover:text-white group-hover:bg-blue-800 group-hover:shadow-lg;
+}
+
+.nav-dropdown-menu {
+  @apply absolute origin-top-right mt-2 min-w-max rounded-lg shadow-lg bg-white ring-1 ring-gray-100
+    z-10 max-h-64 overflow-scroll right-0
+    focus:outline-none
+    md:left-0;
+}
+
+.nav-dropdown-item {
+  @apply text-gray-700 block px-4 py-2 text-sm rounded-lg 
+  hover:bg-blue-800 hover:text-white hover:cursor-pointer;
+}
+
+.btn-nav {
+  @apply flex justify-center items-center p-2 pl-3 pr-3 rounded-lg transition-all w-max
+  hover:text-white hover:bg-blue-800 hover:shadow-lg;
+}
