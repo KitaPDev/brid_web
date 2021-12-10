@@ -5,6 +5,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import http from "../lib/http";
 import { ModuleData } from "../interfaces/module";
 import { IndustryData } from "../interfaces/industry";
+import Footer from "../components/Footer/Footer";
 
 function HomePage({
   modules,
@@ -14,6 +15,7 @@ function HomePage({
     <>
       <NavBar />
       <Home modules={modules} industries={industries} />
+      <Footer />
     </>
   );
 }
@@ -30,6 +32,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       ...(await serverSideTranslations(locale ? locale : "en", [
         "navbar",
         "home",
+        "footer",
       ])),
       modules,
       industries,

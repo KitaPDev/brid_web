@@ -5,7 +5,6 @@ import { GoChevronDown } from "react-icons/go";
 import { FiMenu } from "react-icons/fi";
 import { GrClose } from "react-icons/gr";
 import { ModuleData } from "../../interfaces/module";
-import { IndustryData } from "../../interfaces/industry";
 import { LanguageData } from "../../interfaces/language";
 import http from "../../lib/http";
 
@@ -17,19 +16,14 @@ function NavBar() {
 
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isModulesOpen, setIsModulesOpen] = useState(false);
-  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
   const [isLanguagesOpen, setIsLanguagesOpen] = useState(false);
   const [modules, setModules] = useState<ModuleData[]>([]);
-  const [industries, setIndustries] = useState<IndustryData[]>([]);
   const [languages, setLanguages] = useState<LanguageData[]>([]);
 
   useEffect(() => {
     const getNavBarData = async () => {
       let resp = await http.get(`/${locale}/module`);
       setModules(resp.data);
-
-      resp = await http.get(`/${locale}/industry`);
-      setIndustries(resp.data);
 
       resp = await http.get(`/language`);
       setLanguages(resp.data);
@@ -39,7 +33,7 @@ function NavBar() {
   }, [locale]);
 
   return (
-    <nav className="sticky flex items-center flex-wrap p-6 z-50">
+    <nav className="sticky flex items-center flex-wrap p-4 z-50">
       <ul className="block sm:flex items-center flex-shrink-0 w-full">
         <div className="flex">
           <li className="mr-6 text-blue-800 text-5xl uppercase font-semibold">
@@ -128,7 +122,7 @@ function NavBar() {
               onMouseOver={() => setIsLanguagesOpen(true)}
               onMouseLeave={() => setIsLanguagesOpen(false)}
             >
-              <button className="btn-nav-dropdown">
+              <button className="btn-nav-dropdown text-md">
                 {t("languages")}{" "}
                 <GoChevronDown className="ml-1 transition-all group-hover:rotate-180" />
               </button>

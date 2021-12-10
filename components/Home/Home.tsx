@@ -3,6 +3,7 @@ import { useTranslation } from "next-i18next";
 import { ModuleData } from "../../interfaces/module";
 import { IndustryData } from "../../interfaces/industry";
 import { BsArrowRight } from "react-icons/bs";
+import { RiCustomerService2Line, RiSettings3Line } from "react-icons/ri";
 
 interface HomeProps {
   modules: ModuleData[];
@@ -31,14 +32,14 @@ function Home({ modules, industries }: HomeProps) {
           </Link>
         </div>
       </section>
-      <section className="p-8 max-w-6xl mx-auto">
+      <section className="p-8 max-w-6xl mx-auto mb-8">
         <div className="space-y-2">
           <h2 className="text-3xl font-bold">{t("s1Title")}</h2>
-          <p className=" text-gray-700">{t("s1Subtitle")}</p>
+          <p className="text-gray-700">{t("s1Subtitle")}</p>
         </div>
         <div className="my-8 grid grid-cols-3 gap-8">
           {modules.map((m) => (
-            <div className="relative p-4 bg-gray-200 rounded-xl">
+            <div className="relative p-4 bg-gray-50 rounded-xl">
               <h3 className="font-semibold text-xl">{m.label}</h3>
               <p className="text-gray-500 mt-4 pb-4">{m.description}</p>
               <div className="mt-4">
@@ -54,6 +55,43 @@ function Home({ modules, industries }: HomeProps) {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+      <section className="p-8 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="space-y-2 mb-4">
+            <h2 className="text-3xl font-bold text-center">{t("s2Title")}</h2>
+            <p className="text-gray-700 text-center">{t("s2Subtitle")}</p>
+          </div>
+          <div className="flex flex-wrap justify-center">
+            {industries.map((i) => (
+              <div className="py-4 px-6 bg-white rounded-xl m-4">
+                <h3 className="text-l">{i.label}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="p-8 max-w-6xl mx-auto mb-8">
+        <div className="space-y-2">
+          <h2 className="text-3xl font-bold">{t("s3Title")}</h2>
+          <p className="text-gray-700">{t("s3Subtitle")}</p>
+        </div>
+        <div className="my-8 grid grid-cols-3 gap-8">
+          <div className="space-y-2">
+            <div className="h-40">
+              <RiCustomerService2Line className="w-6/12 h-full mx-auto" />
+            </div>
+            <h3 className="text-center text-xl font-bold">{t("s3Topic1")}</h3>
+            <p className="text-justify">{t("s3Desc1")}</p>
+          </div>
+          <div className="space-y-2">
+            <div className="h-40">
+              <RiSettings3Line className="w-6/12 h-full mx-auto" />
+            </div>
+            <h3 className="text-center text-xl font-bold">{t("s3Topic2")}</h3>
+            <p className="text-justify">{t("s3Desc2")}</p>
+          </div>
         </div>
       </section>
     </div>
