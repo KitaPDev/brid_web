@@ -15,6 +15,7 @@ function HomePage({
     <>
       <NavBar />
       <Home modules={modules} industries={industries} />
+      <hr />
       <Footer />
     </>
   );

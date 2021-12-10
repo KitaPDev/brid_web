@@ -4,6 +4,7 @@ import { ModuleData } from "../../interfaces/module";
 import { IndustryData } from "../../interfaces/industry";
 import { BsArrowRight } from "react-icons/bs";
 import { RiCustomerService2Line, RiSettings3Line } from "react-icons/ri";
+import { SiPytest } from "react-icons/si";
 
 interface HomeProps {
   modules: ModuleData[];
@@ -91,6 +92,13 @@ function Home({ modules, industries }: HomeProps) {
             </div>
             <h3 className="text-center text-xl font-bold">{t("s3Topic2")}</h3>
             <p className="text-justify">{t("s3Desc2")}</p>
+          </div>
+          <div className="space-y-2">
+            <div className="h-40">
+              <SiPytest className="w-5/12 h-full mx-auto" />
+            </div>
+            <h3 className="text-center text-xl font-bold">{t("s3Topic3")}</h3>
+            <p className="text-justify">{t("s3Desc3")}</p>
           </div>
         </div>
       </section>
