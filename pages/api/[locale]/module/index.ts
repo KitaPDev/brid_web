@@ -32,6 +32,9 @@ export default async function handle(
           },
         },
       },
+      orderBy: {
+        displayOrder: "asc",
+      },
     });
 
     modules.forEach((module) => {

@@ -1,4 +1,4 @@
-export interface Career {
+export interface CareerData {
   id: number;
   minYearExp: number;
   languageId: number;

@@ -18,14 +18,14 @@ function Home({ modules, industries }: HomeProps) {
     <div>
       <section className="hero-home">
         <div className="backdrop-blur-md flex flex-col justify-center pl-8 space-y-4">
-          <h1 className="text-white text-6xl font-semibold">
+          <h1 className="text-white text-3xl xl:text-6xl font-semibold">
             {t("heroTitle")}
           </h1>
-          <p className="text-white text-3xl">{t("heroSubtitle")}</p>
+          <p className="text-white text-xl xl:text-3xl">{t("heroSubtitle")}</p>
 
           <Link href="/contact-us">
             <button
-              className="bg-blue-500 text-white p-3 rounded-lg w-max
+              className="bg-blue-500 text-white p-2 xl:p-3 rounded-lg w-max
           hover:bg-white hover:text-blue-500 transition-all"
             >
               {t("heroBtnText")}
@@ -33,14 +33,14 @@ function Home({ modules, industries }: HomeProps) {
           </Link>
         </div>
       </section>
-      <section className="p-8 max-w-6xl mx-auto mb-8">
+      <section className="md:p-8 max-w-6xl mx-auto p-4">
         <div className="space-y-2">
           <h2 className="text-3xl font-bold">{t("s1Title")}</h2>
           <p className="text-gray-700">{t("s1Subtitle")}</p>
         </div>
-        <div className="my-8 grid grid-cols-3 gap-8">
+        <div className="my-8 grid grid-cols-1 md:grid-cols-3 md:gap-8">
           {modules.map((m) => (
-            <div className="relative p-4 bg-gray-50 rounded-xl">
+            <div className="relative p-4 bg-gray-50 rounded-xl mt-4 md:mt-0">
               <h3 className="font-semibold text-xl">{m.label}</h3>
               <p className="text-gray-500 mt-4 pb-4">{m.description}</p>
               <div className="mt-4">
@@ -58,7 +58,7 @@ function Home({ modules, industries }: HomeProps) {
           ))}
         </div>
       </section>
-      <section className="p-8 bg-gray-50">
+      <section className="p-4 md:p-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="space-y-2 mb-4">
             <h2 className="text-3xl font-bold text-center">{t("s2Title")}</h2>
@@ -66,19 +66,19 @@ function Home({ modules, industries }: HomeProps) {
           </div>
           <div className="flex flex-wrap justify-center">
             {industries.map((i) => (
-              <div className="py-4 px-6 bg-white rounded-xl m-4">
+              <div className="py-1 px-2 m-2 md:py-4 md:px-6 bg-white rounded-xl md:m-4">
                 <h3 className="text-l">{i.label}</h3>
               </div>
             ))}
           </div>
         </div>
       </section>
-      <section className="p-8 max-w-6xl mx-auto mb-8">
+      <section className="md:p-8 max-w-6xl mx-auto p-4">
         <div className="space-y-2">
           <h2 className="text-3xl font-bold">{t("s3Title")}</h2>
           <p className="text-gray-700">{t("s3Subtitle")}</p>
         </div>
-        <div className="my-8 grid grid-cols-3 gap-8">
+        <div className="my-8 grid grid-cols-1 md:grid-cols-3 md:gap-8 space-y-4">
           <div className="space-y-2">
             <div className="h-40">
               <RiCustomerService2Line className="w-6/12 h-full mx-auto" />

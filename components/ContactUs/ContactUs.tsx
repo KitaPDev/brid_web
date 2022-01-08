@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import { useRouter } from "next/router";
 import { ContactData } from "../../interfaces/contact";
 import http from "../../lib/http";
 import { Formik, Field, Form, ErrorMessage } from "formik";
@@ -9,8 +8,6 @@ import { regex } from "../../lib/regex";
 import { useTranslation } from "next-i18next";
 
 const ContactUs: FunctionComponent = () => {
-  console.log(useRouter().locale);
-
   const { t } = useTranslation("contact-us");
 
   return (

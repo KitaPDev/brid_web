@@ -20,6 +20,9 @@ export default async function handle(
           },
         },
       },
+      orderBy: {
+        postedAt: "desc",
+      },
     });
 
     let contentNews = await prisma.contentNews.findMany({

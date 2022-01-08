@@ -22,6 +22,7 @@ model Language {
   i18nNews            I18nNews[]
   i18nContentNews     I18nContentNews[]
   i18nCareer          I18nCareer[]
+  i18nFaq             I18nFaq[]
 }
 
 // Module
@@ -122,9 +123,9 @@ model ContentNews {
   id              Int               @id @default(autoincrement())
   news            News              @relation(fields: [newsId], references: [id])
   newsId          Int
-  displayOrder    Int
-  mediaPath       String
-  youtubeEmbedId  String
+  displayOrder    Int               @default(9999)
+  mediaPath       String            @default("")
+  youtubeEmbedId  String            @default("")
   publishedAt     DateTime          @default(now())
   i18nContentNews I18nContentNews[]
 }
@@ -134,7 +135,7 @@ model I18nContentNews {
   contentNewsId Int
   language      Language    @relation(fields: [languageId], references: [id])
   languageId    Int
-  content       String
+  content       String      @default("")
 
   @@id([contentNewsId, languageId])
 }
@@ -153,11 +154,26 @@ model I18nCareer {
   language        Language @relation(fields: [languageId], references: [id])
   languageId      Int
   title           String   @unique
-  description     String?
-  requiredSkills  String
-  preferredSkills String
+  description     String   @default("")
+  requiredSkills  String   @default("")
+  preferredSkills String   @default("")
 
   @@id([careerId, languageId])
+}
+
+model Faq {
+  id           Int       @id @default(autoincrement())
+  displayOrder Int       @default(9999)
+  i18nFaq      I18nFaq[]
+}
+
+model I18nFaq {
+  faq        Faq      @relation(fields: [faqId], references: [id])
+  faqId      Int
+  language   Language @relation(fields: [languageId], references: [id])
+  languageId Int
+  question   String   @unique
+  answer     String   @unique
 }
 
 // Contact

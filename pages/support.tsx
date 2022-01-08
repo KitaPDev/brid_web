@@ -1,16 +1,16 @@
-import News from "../components/News/News";
 import NavBar from "../components/NavBar/NavBar";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Support from "../components/Support/Support";
 import http from "../lib/http";
-import { NewsData } from "../interfaces/news";
+import { FaqData } from "../interfaces/support";
 import Footer from "../components/Footer/Footer";
 
-function NewsPage({ news }: InferGetStaticPropsType<typeof getStaticProps>) {
+function SupportPage({ faqs }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <NavBar />
-      <News news={news} />
+      <Support faqs={faqs} />
       <hr />
       <Footer />
     </>
@@ -18,19 +18,19 @@ function NewsPage({ news }: InferGetStaticPropsType<typeof getStaticProps>) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  let resp = await http.get(`/${locale}/news`);
-  let news: NewsData[] = resp.data;
+  let resp = await http.get(`/${locale}/support`);
+  let faqs: FaqData[] = resp.data;
 
   return {
     props: {
       ...(await serverSideTranslations(locale ? locale : "en", [
         "navbar",
-        "news",
+        "support",
         "footer",
       ])),
-      news,
+      faqs,
     },
   };
 };
 
-export default NewsPage;
+export default SupportPage;

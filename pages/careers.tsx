@@ -1,36 +1,34 @@
-import News from "../components/News/News";
 import NavBar from "../components/NavBar/NavBar";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import http from "../lib/http";
-import { NewsData } from "../interfaces/news";
-import Footer from "../components/Footer/Footer";
+import { CareerData } from "../interfaces/careers";
+import Careers from "../components/Careers/Careers";
 
-function NewsPage({ news }: InferGetStaticPropsType<typeof getStaticProps>) {
+function SupportPage({
+  careers,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <NavBar />
-      <News news={news} />
-      <hr />
-      <Footer />
+      <Careers careers={careers} />
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  let resp = await http.get(`/${locale}/news`);
-  let news: NewsData[] = resp.data;
+  let resp = await http.get(`/${locale}/careers`);
+  let careers: CareerData[] = resp.data;
 
   return {
     props: {
       ...(await serverSideTranslations(locale ? locale : "en", [
         "navbar",
-        "news",
-        "footer",
+        "careers",
       ])),
-      news,
+      careers: careers,
     },
   };
 };
 
-export default NewsPage;
+export default SupportPage;
