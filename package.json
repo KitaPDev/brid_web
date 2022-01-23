@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "start:prod": "pm2 start yarn --name 'next' -- start"
+    "start:prod": "pm2 start yarn --name 'next' -- start",
+    "monit": "pm2 monit"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
