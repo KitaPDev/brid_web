@@ -20,8 +20,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
       "navbar",
       "contact-us",
     ])),
-    revalidate: 60,
   },
+  revalidate: 60,
+  notFound: true,
 });
 
 export default ContactUsPage;

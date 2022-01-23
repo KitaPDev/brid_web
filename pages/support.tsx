@@ -2,9 +2,9 @@ import NavBar from "../components/NavBar/NavBar";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Support from "../components/Support/Support";
-import http from "../lib/http";
 import { FaqData } from "../interfaces/support";
 import Footer from "../components/Footer/Footer";
+import { prisma } from "../lib/prisma";
 
 function SupportPage({ faqs }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
@@ -18,8 +18,34 @@ function SupportPage({ faqs }: InferGetStaticPropsType<typeof getStaticProps>) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  let resp = await http.get(`/${locale}/support`);
-  let faqs: FaqData[] = resp.data;
+  let result: FaqData[] = [];
+
+  let faqs = await prisma.faq.findMany({
+    include: {
+      i18nFaq: {
+        where: {
+          language: {
+            isoTwoLetter: locale,
+          },
+        },
+      },
+    },
+    orderBy: {
+      displayOrder: "asc",
+    },
+  });
+
+  faqs.forEach((faq) => {
+    const i18nFaq = faq.i18nFaq.find((i) => i.faqId === faq.id);
+
+    result.push({
+      id: faq.id,
+      languageId: i18nFaq?.languageId,
+      displayOrder: faq.displayOrder,
+      question: i18nFaq?.question,
+      answer: i18nFaq?.answer,
+    });
+  });
 
   return {
     props: {
@@ -28,9 +54,10 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         "support",
         "footer",
       ])),
-      faqs,
-      revalidate: 60,
+      result,
     },
+    revalidate: 60,
+    notFound: true,
   };
 };
 
