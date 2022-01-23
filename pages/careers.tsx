@@ -28,6 +28,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       ])),
       careers: careers,
     },
+    revalidate: 60,
   };
 };
 

@@ -37,6 +37,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       ])),
       modules,
       industries,
+      revalidate: 60,
     },
   };
 };

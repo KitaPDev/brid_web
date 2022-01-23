@@ -31,6 +31,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         "footer",
       ])),
       modules: modules,
+      revalidate: 60,
     },
   };
 };
@@ -45,7 +46,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking",
+    fallback: false,
   };
 };
 
