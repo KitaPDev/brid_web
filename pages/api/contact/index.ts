@@ -27,7 +27,7 @@ export default async function handle(
         email: c.email,
         phoneNumber: c.phoneNumber,
         message: c.message,
-        createdAt: c.createdAt,
+        createdAt: new Date(),
       },
       select: {
         id: true,

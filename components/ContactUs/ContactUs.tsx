@@ -46,7 +46,6 @@ const ContactUs: FunctionComponent = () => {
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           setSubmitting(true);
 
-          console.log(values);
           const data: ContactData = values;
           const resp = await http.post(`/contact`, data);
           if (resp.status === 201) {

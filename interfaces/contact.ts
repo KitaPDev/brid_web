@@ -6,5 +6,5 @@ export interface ContactData {
   email: string;
   phoneNumber: string;
   message: string;
-  createdAt: Date;
+  createdAt?: Date;
 }
