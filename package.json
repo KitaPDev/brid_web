@@ -5,7 +5,8 @@
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start:prod": "pm2 start yarn --name 'next' -- start"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
@@ -23,6 +24,7 @@
     "i18next": "^21.5.3",
     "next": "^12.0.3",
     "next-i18next": "^9.2.0",
+    "pm2": "^5.1.2",
     "postcss": "^8.3.11",
     "prisma": "^3.5.0",
     "react": "17.0.2",
