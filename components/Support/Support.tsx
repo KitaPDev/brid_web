@@ -28,7 +28,11 @@ function Support({ faqs }: SupportProps) {
               className="text-center my-6 text-2xl font-500
             hover:underline hover:text-blue-700"
             >
-              <a href="http://planetone.online/forum/index.php" target="_blank">
+              <a
+                href="http://planetone.online/forum/index.php"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
                 {t("s11Title")}
               </a>
             </h2>
@@ -46,6 +50,7 @@ function Support({ faqs }: SupportProps) {
               <a
                 href="http://planetone.online:9090/jtrac/app/login;jsessionid=z2ydg0knzjab"
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 {t("s12Title")}
               </a>

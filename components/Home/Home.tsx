@@ -23,7 +23,7 @@ function Home({ modules, industries }: HomeProps) {
           </h1>
           <p className="text-white text-xl xl:text-3xl">{t("heroSubtitle")}</p>
 
-          <Link href="/contact-us">
+          <Link href="/contact-us" passHref>
             <button
               className="bg-blue-500 text-white p-2 xl:p-3 rounded-lg w-max
           hover:bg-white hover:text-blue-500 transition-all"
@@ -40,11 +40,14 @@ function Home({ modules, industries }: HomeProps) {
         </div>
         <div className="my-8 grid grid-cols-1 md:grid-cols-3 md:gap-8">
           {modules.map((m) => (
-            <div className="relative p-4 bg-gray-50 rounded-xl mt-4 md:mt-0">
+            <div
+              key={m.label}
+              className="relative p-4 bg-gray-50 rounded-xl mt-4 md:mt-0"
+            >
               <h3 className="font-semibold text-xl">{m.label}</h3>
               <p className="text-gray-500 mt-4 pb-4">{m.description}</p>
               <div className="mt-4">
-                <Link href={"/module/" + m.id}>
+                <Link href={"/module/" + m.id} passHref>
                   <button
                     className="flex absolute bottom-4 text-blue-500 font-light
                   hover:text-blue-800 hover:underline"
@@ -66,7 +69,10 @@ function Home({ modules, industries }: HomeProps) {
           </div>
           <div className="flex flex-wrap justify-center">
             {industries.map((i) => (
-              <div className="py-1 px-2 m-2 md:py-4 md:px-6 bg-white rounded-xl md:m-4">
+              <div
+                key={i.label}
+                className="py-1 px-2 m-2 md:py-4 md:px-6 bg-white rounded-xl md:m-4"
+              >
                 <h3 className="text-l">{i.label}</h3>
               </div>
             ))}

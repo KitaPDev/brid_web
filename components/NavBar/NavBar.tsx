@@ -71,7 +71,7 @@ function NavBar() {
                   onMouseOver={() => setIsModulesOpen(true)}
                 >
                   {modules.map((m) => (
-                    <Link href={"/module/" + m.id}>
+                    <Link key={m.label} href={"/module/" + m.id} passHref>
                       <div className="nav-dropdown-item" tabIndex={-1}>
                         {m.label}
                       </div>
@@ -87,7 +87,7 @@ function NavBar() {
             className="p-1 ml-auto w-min
             sm:p-2 sm:pr-1"
           >
-            <Link href="/news">
+            <Link href="/news" passHref>
               <button
                 className="flex justify-center items-center p-2 pl-3 pr-3 rounded-lg transition-all w-max
             hover:text-white hover:bg-blue-800 hover:shadow-lg"
@@ -97,17 +97,17 @@ function NavBar() {
             </Link>
           </li>
           <li className="p-1 sm:p-2 sm:pr-1 ml-auto w-min">
-            <Link href="/support">
+            <Link href="/support" passHref>
               <button className="btn-nav">{t("support")}</button>
             </Link>
           </li>
           <li className="p-1 sm:p-2 sm:pr-1 ml-auto w-min">
-            <Link href="/careers">
+            <Link href="/careers" passHref>
               <button className="btn-nav">{t("careers")}</button>
             </Link>
           </li>
           <li className="p-2 pl-4 sm:pr-0 ml-auto w-min">
-            <Link href="/contact-us">
+            <Link href="/contact-us" passHref>
               <button
                 className="flex justify-center items-center p-2 pl-3 pr-3 rounded-lg transition-all bg-blue-800 text-white shadow-lg w-max
             hover:text-blue-800 hover:bg-white hover:ring-blue-800 hover:ring-1"
@@ -134,7 +134,11 @@ function NavBar() {
                   onMouseOver={() => setIsLanguagesOpen(true)}
                 >
                   {languages.map((l) => (
-                    <div className="nav-dropdown-item" tabIndex={-1}>
+                    <div
+                      key={l.isoTwoLetter}
+                      className="nav-dropdown-item"
+                      tabIndex={-1}
+                    >
                       <div
                         onClick={() =>
                           router.push({ pathname, query }, asPath, {

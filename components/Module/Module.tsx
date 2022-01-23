@@ -1,6 +1,7 @@
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { ModuleData } from "../../interfaces/module";
+import Image from "next/image";
 
 interface ModuleProps {
   modules: ModuleData[];
@@ -43,6 +44,7 @@ function Module({ modules }: ModuleProps) {
           );
           return (
             <section
+              key={content.id}
               className={`md:p-8 mx-auto p-4 ${
                 prevBgColor === "white" ? "bg-gray-50" : "white max-w-6xl"
               }`}
@@ -69,15 +71,18 @@ function Module({ modules }: ModuleProps) {
 
         return (
           <section
+            key={content.id}
             className={`md:p-8  mx-auto p-4 ${
               prevBgColor === "white" ? "bg-gray-50" : "white max-w-6xl"
             }`}
           >
             <div className="grid grid-cols-1 space-y-4 md:grid-cols-2 md:space-x-8">
-              <img
+              <Image
                 src={`/content_module/${content.mediaPath}`}
                 className="aspect-w-16 aspce-h-9 max-h-96 rounded-lg shadow-lg ml-auto"
-              ></img>
+                alt=""
+                layout="fill"
+              />
               <p className="text-xl text-justify flex items-center max-w-xl">
                 {content.content}
               </p>

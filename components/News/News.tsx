@@ -1,5 +1,6 @@
 import { useTranslation } from "next-i18next";
 import { NewsData } from "../../interfaces/news";
+import Image from "next/image";
 
 interface NewsProps {
   news: NewsData[];
@@ -25,8 +26,15 @@ function News({ news }: NewsProps) {
               <a
                 href="http://www.smartbomb.co.th/program/details/107642"
                 target="_blank"
+                rel="noreferrer noopener"
               >
-                <img src="/content_news/radio905_02.png" />
+                <div className=" max-h-full aspect-w-16 aspect-h-9 relative">
+                  <Image
+                    src="/content_news/radio905_02.png"
+                    alt=""
+                    layout="fill"
+                  />
+                </div>
               </a>
             </div>
             <div className="block-news">
@@ -34,6 +42,7 @@ function News({ news }: NewsProps) {
               <a
                 href="http://www.smartbomb.co.th/program/details/107642"
                 target="_blank"
+                rel="noreferrer noopener"
               >
                 <iframe
                   width="100%"
