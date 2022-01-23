@@ -10,7 +10,7 @@ export default async function handle(
   if (req.method === "POST") {
     let body = req.body;
 
-    const c: ContactData = req.body;
+    const c: ContactData = body;
 
     if (!regex.email.test(c.email)) {
       return res.status(400).send("Invalid email address.");
@@ -27,6 +27,7 @@ export default async function handle(
         email: c.email,
         phoneNumber: c.phoneNumber,
         message: c.message,
+        createdAt: c.createdAt,
       },
       select: {
         id: true,
