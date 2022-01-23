@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "start:prod": "pm2 start yarn --name 'next' -- start",
+    "start:prod": "pm2 start yarn --name 'brid_web_next' -- start",
+    "delete:prod": "pm2 delete brid_web_next",
     "monit": "pm2 monit"
   },
   "prisma": {
