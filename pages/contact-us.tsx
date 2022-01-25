@@ -22,7 +22,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => ({
     ])),
   },
   revalidate: 60,
-  notFound: true,
 });
 
 export default ContactUsPage;

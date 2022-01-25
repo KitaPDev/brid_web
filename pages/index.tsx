@@ -154,7 +154,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       industries: industries,
     },
     revalidate: 60,
-    notFound: true,
   };
 };
 

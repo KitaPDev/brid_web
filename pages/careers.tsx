@@ -17,8 +17,8 @@ function SupportPage({
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  let result: CareerData[] = [];
-  let careers = await prisma.career.findMany({
+  let careers: CareerData[] = [];
+  let pmCareers = await prisma.career.findMany({
     include: {
       i18nCareer: {
         where: {
@@ -30,18 +30,20 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     },
   });
 
-  careers.forEach((career) => {
-    const i18nCareer = career.i18nCareer.find((i) => i.careerId === career.id);
+  pmCareers.forEach((career) => {
+    const pmI18nCareer = career.i18nCareer.find(
+      (i) => i.careerId === career.id
+    );
 
-    if (i18nCareer) {
-      result.push({
+    if (pmI18nCareer) {
+      careers.push({
         id: career.id,
         minYearExp: career.minYearExp,
-        languageId: i18nCareer.languageId,
-        title: i18nCareer.title,
-        description: i18nCareer.description,
-        requiredSkills: i18nCareer.requiredSkills,
-        preferredSkills: i18nCareer.preferredSkills,
+        languageId: pmI18nCareer.languageId,
+        title: pmI18nCareer.title,
+        description: pmI18nCareer.description,
+        requiredSkills: pmI18nCareer.requiredSkills,
+        preferredSkills: pmI18nCareer.preferredSkills,
       });
     }
   });
@@ -52,10 +54,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         "navbar",
         "careers",
       ])),
-      careers: careers,
+      careers,
     },
     revalidate: 60,
-    notFound: true,
   };
 };
 

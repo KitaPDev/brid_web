@@ -18,6 +18,7 @@
     "@tailwindcss/aspect-ratio": "^0.3.0",
     "autoprefixer": "^10.4.0",
     "axios": "^0.24.0",
+    "babel-plugin-superjson-next": "^0.4.2",
     "dotenv": "^10.0.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "formik": "^2.2.9",
@@ -35,6 +36,7 @@
     "react-icons": "^4.3.1",
     "react-is": "^17.0.2",
     "sharp": "^0.29.3",
+    "superjson": "^1.8.0",
     "tailwindcss": "^2.2.19",
     "ts-node": "^10.4.0",
     "yup": "^0.32.11"

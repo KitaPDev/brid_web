@@ -28,7 +28,7 @@ function News({ news }: NewsProps) {
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                <div className=" max-h-full aspect-w-16 aspect-h-9 relative">
+                <div className="max-h-full aspect-w-16 aspect-h-9 relative">
                   <Image
                     src="/content_news/radio905_02.png"
                     alt=""

@@ -1,4 +1,3 @@
-import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { ModuleData } from "../../interfaces/module";
 import Image from "next/image";
@@ -8,7 +7,6 @@ interface ModuleProps {
 }
 
 function Module({ modules }: ModuleProps) {
-  const { t } = useTranslation("module");
   const { query } = useRouter();
 
   console.log(modules);
@@ -76,14 +74,16 @@ function Module({ modules }: ModuleProps) {
               prevBgColor === "white" ? "bg-gray-50" : "white max-w-6xl"
             }`}
           >
-            <div className="grid grid-cols-1 space-y-4 md:grid-cols-2 md:space-x-8">
-              <Image
-                src={`/content_module/${content.mediaPath}`}
-                className="aspect-w-16 aspce-h-9 max-h-96 rounded-lg shadow-lg ml-auto"
-                alt=""
-                layout="fill"
-              />
-              <p className="text-xl text-justify flex items-center max-w-xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 md:space-x-8">
+              <div className="relative aspect-w-16 aspect-h-9">
+                <Image
+                  src={`/content_module/${content.mediaPath}`}
+                  className="max-h-96 rounded-lg shadow-lg ml-auto"
+                  alt=""
+                  layout="fill"
+                />
+              </div>
+              <p className="text-xl text-justify max-w-xl flex items-center">
                 {content.content}
               </p>
             </div>

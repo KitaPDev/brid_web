@@ -18,9 +18,9 @@ function SupportPage({ faqs }: InferGetStaticPropsType<typeof getStaticProps>) {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  let result: FaqData[] = [];
+  let faqs: FaqData[] = [];
 
-  let faqs = await prisma.faq.findMany({
+  let pmFaqs = await prisma.faq.findMany({
     include: {
       i18nFaq: {
         where: {
@@ -35,10 +35,10 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     },
   });
 
-  faqs.forEach((faq) => {
+  pmFaqs.forEach((faq) => {
     const i18nFaq = faq.i18nFaq.find((i) => i.faqId === faq.id);
 
-    result.push({
+    faqs.push({
       id: faq.id,
       languageId: i18nFaq?.languageId,
       displayOrder: faq.displayOrder,
@@ -54,10 +54,9 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         "support",
         "footer",
       ])),
-      result,
+      faqs,
     },
     revalidate: 60,
-    notFound: true,
   };
 };
 

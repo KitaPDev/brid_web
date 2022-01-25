@@ -90,7 +90,6 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
       news,
     },
     revalidate: 60,
-    notFound: true,
   };
 };
 
