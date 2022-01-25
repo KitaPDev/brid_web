@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: `http://${process.env.NEXT_PUBLIC_HOST}:${process.env.NEXT_PUBLIC_PORT}/api`,
+  baseURL: `http://${process.env.NEXT_PUBLIC_ADDRESS}/api`,
 });
 
 const http = {

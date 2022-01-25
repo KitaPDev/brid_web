@@ -59,7 +59,11 @@ function NavBar() {
               onMouseOver={() => setIsModulesOpen(true)}
               onMouseLeave={() => setIsModulesOpen(false)}
             >
-              <button className="btn-nav-dropdown">
+              <button
+                className={`btn-nav-dropdown ${
+                  pathname.includes("/module") ? "font-bold" : ""
+                }`}
+              >
                 {t("modules")}{" "}
                 <GoChevronDown className="ml-1 transition-all group-hover:rotate-180" />
               </button>
@@ -89,8 +93,7 @@ function NavBar() {
           >
             <Link href="/news" passHref>
               <button
-                className="flex justify-center items-center p-2 pl-3 pr-3 rounded-lg transition-all w-max
-            hover:text-white hover:bg-blue-800 hover:shadow-lg"
+                className={`btn-nav ${pathname === "/news" ? "font-bold" : ""}`}
               >
                 {t("news")}
               </button>
@@ -98,12 +101,24 @@ function NavBar() {
           </li>
           <li className="p-1 sm:p-2 sm:pr-1 ml-auto w-min">
             <Link href="/support" passHref>
-              <button className="btn-nav">{t("support")}</button>
+              <button
+                className={`btn-nav ${
+                  pathname === "/support" ? "font-bold" : ""
+                }`}
+              >
+                {t("support")}
+              </button>
             </Link>
           </li>
           <li className="p-1 sm:p-2 sm:pr-1 ml-auto w-min">
             <Link href="/careers" passHref>
-              <button className="btn-nav">{t("careers")}</button>
+              <button
+                className={`btn-nav ${
+                  pathname === "/careers" ? "font-bold" : ""
+                }`}
+              >
+                {t("careers")}
+              </button>
             </Link>
           </li>
           <li className="p-2 pl-4 sm:pr-0 ml-auto w-min">
