@@ -6,6 +6,7 @@ import { ContentModuleData, ModuleData } from "../interfaces/module";
 import { ContentIndustryData, IndustryData } from "../interfaces/industry";
 import Footer from "../components/Footer/Footer";
 import { prisma } from "../lib/prisma";
+import Head from "next/head";
 
 function HomePage({
   modules,
@@ -13,6 +14,9 @@ function HomePage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
+      <Head>
+        <title>BRID Systems</title>
+      </Head>
       <NavBar />
       <Home modules={modules} industries={industries} />
       <hr />
