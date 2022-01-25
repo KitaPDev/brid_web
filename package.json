@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start -p 3000",
     "lint": "next lint",
-    "start:prod": "pm2 start yarn --name 'brid_web_next' -- start",
+    "start:prod": "pm2 start yarn --name 'brid_web' --interpreter bash -- start",
     "delete:prod": "pm2 delete brid_web_next",
     "monit": "pm2 monit"
   },
