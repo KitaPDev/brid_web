@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { ContactData } from "../../../interfaces/contact";
 import { prisma } from "../../../lib/prisma";
 import { regex } from "../../../lib/regex";
+import sendContactEmail from "../../../mailer";
 
 export default async function handle(
   req: NextApiRequest,
@@ -40,6 +41,15 @@ export default async function handle(
         createdAt: true,
       },
     });
+
+    sendContactEmail(
+      c.email,
+      c.firstName,
+      c.lastName,
+      c.organizationName,
+      c.phoneNumber,
+      c.message
+    );
 
     res.status(201).json(contact);
   } else {
