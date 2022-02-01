@@ -61,7 +61,9 @@ function NavBar() {
             >
               <button
                 className={`btn-nav-dropdown ${
-                  pathname.includes("/module") ? "font-bold" : ""
+                  pathname.includes("/module")
+                    ? "font-bold flex justify-center items-center p-2 pl-3 pr-3 rounded-lg transition-all bg-blue-800 text-white shadow-lg w-max hover:text-blue-800 hover:bg-white hover:ring-blue-800 hover:ring-1"
+                    : ""
                 }`}
               >
                 {t("modules")}{" "}
@@ -93,7 +95,11 @@ function NavBar() {
           >
             <Link href="/news" passHref>
               <button
-                className={`btn-nav ${pathname === "/news" ? "font-bold" : ""}`}
+                className={`btn-nav ${
+                  pathname === "/news"
+                    ? "font-bold flex justify-center items-center p-2 pl-3 pr-3 rounded-lg transition-all bg-blue-800 text-white shadow-lg w-max hover:text-blue-800 hover:bg-white hover:ring-blue-800 hover:ring-1"
+                    : ""
+                }`}
               >
                 {t("news")}
               </button>
@@ -103,7 +109,9 @@ function NavBar() {
             <Link href="/support" passHref>
               <button
                 className={`btn-nav ${
-                  pathname === "/support" ? "font-bold" : ""
+                  pathname === "/support"
+                    ? "font-bold flex justify-center items-center p-2 pl-3 pr-3 rounded-lg transition-all bg-blue-800 text-white shadow-lg w-max hover:text-blue-800 hover:bg-white hover:ring-blue-800 hover:ring-1"
+                    : ""
                 }`}
               >
                 {t("support")}
@@ -114,7 +122,9 @@ function NavBar() {
             <Link href="/careers" passHref>
               <button
                 className={`btn-nav ${
-                  pathname === "/careers" ? "font-bold" : ""
+                  pathname === "/careers"
+                    ? "font-bold flex justify-center items-center p-2 pl-3 pr-3 rounded-lg transition-all bg-blue-800 text-white shadow-lg w-max hover:text-blue-800 hover:bg-white hover:ring-blue-800 hover:ring-1"
+                    : ""
                 }`}
               >
                 {t("careers")}
@@ -124,8 +134,11 @@ function NavBar() {
           <li className="p-2 pl-4 sm:pr-0 ml-auto w-min">
             <Link href="/contact-us" passHref>
               <button
-                className="flex justify-center items-center p-2 pl-3 pr-3 rounded-lg transition-all bg-blue-800 text-white shadow-lg w-max
-            hover:text-blue-800 hover:bg-white hover:ring-blue-800 hover:ring-1"
+                className={`btn-nav ${
+                  pathname === "/contact-us"
+                    ? "font-bold flex justify-center items-center p-2 pl-3 pr-3 rounded-lg transition-all bg-blue-800 text-white shadow-lg w-max hover:text-blue-800 hover:bg-white hover:ring-blue-800 hover:ring-1"
+                    : ""
+                }`}
               >
                 {t("contactUs")}
               </button>
