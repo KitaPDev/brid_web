@@ -3,11 +3,18 @@ import { ContactData } from "../../../interfaces/contact";
 import { prisma } from "../../../lib/prisma";
 import { regex } from "../../../lib/regex";
 import sendContactEmail from "../../../mailer";
+import NextCors from "nextjs-cors";
 
 export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  await NextCors(req, res, {
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+    origin: "*",
+    optionsSuccessStatus: 200,
+  });
+
   if (req.method === "POST") {
     let body = req.body;
 

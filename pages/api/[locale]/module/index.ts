@@ -1,11 +1,18 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ContentModuleData, ModuleData } from "../../../../interfaces/module";
 import { prisma } from "../../../../lib/prisma";
+import NextCors from "nextjs-cors";
 
 export default async function handle(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  await NextCors(req, res, {
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+    origin: "*",
+    optionsSuccessStatus: 200,
+  });
+
   if (req.method === "GET") {
     let result: ModuleData[] = [];
     const currentLocale = req.url?.split("/")[2];
