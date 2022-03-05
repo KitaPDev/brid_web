@@ -16,7 +16,7 @@ const Footer: FunctionComponent = () => {
       </div>
       <div className="flex">
         <BsTelephone className="my-auto mr-1" />
-        +66 95 294 5693, +66 02 271 4362-3
+        +66 95-294-5693, +66 02-271-4362-3, 066-115-2264-5
       </div>
       <address className="not-italic flex">
         <FaRegAddressCard className="my-auto mr-1" />
