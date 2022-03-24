@@ -8,11 +8,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="ROBOTS" content="ALL" />
         <meta name="revisit-after" content="1 days" />
         <meta
-          http-equiv="keywords"
+          httpEquiv="keywords"
           content="ระบบ ERP, ไทย ERP, ERP Thailand, ERP, ระบบบัญชี, Thai Accounting, BOM, ซอฟต์แวร์อีอาร์พี, Software ERP, การจัดตารางการผลิต, MRP, CRM,  สัมมนาอีอาร์พี, ซอฟต์แวร์ ซีอาร์เอ็ม ,ERP  Thailand, ERP Software, Inventory Management, Inventory Analysis, MRP, Optimization Software, PPO, Optimization Solutions, Logistics and Supply Chain, Inventory Planner, การบริหารคลังสินค้า, Logistic software"
         />
         <meta name="RATING" content="GENERAL" />
