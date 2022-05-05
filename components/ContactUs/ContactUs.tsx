@@ -73,7 +73,6 @@ const ContactUs: FunctionComponent = () => {
                 className="w-full border-2 rounded-md p-0.5 pl-2"
               />
               <p className="text-red-500">
-                {/* // @ts-ignore */}
                 <ErrorMessage name="firstName" />
               </p>
             </div>
@@ -91,7 +90,6 @@ const ContactUs: FunctionComponent = () => {
                 className="w-full border-2 rounded-md p-0.5 pl-2"
               />
               <p className="text-red-500">
-                {/* // @ts-ignore */}
                 <ErrorMessage name="lastName" />
               </p>{" "}
             </div>
@@ -109,7 +107,6 @@ const ContactUs: FunctionComponent = () => {
                 className="w-full border-2 rounded-md p-0.5 pl-2"
               />
               <p className="text-red-500">
-                {/* // @ts-ignore */}
                 <ErrorMessage name="organizationName" />
               </p>
             </div>
@@ -127,7 +124,6 @@ const ContactUs: FunctionComponent = () => {
                 className="w-full border-2 rounded-md p-0.5 pl-2"
               />
               <p className="text-red-500">
-                {/* // @ts-ignore */}
                 <ErrorMessage name="email" />
               </p>
             </div>
@@ -145,7 +141,6 @@ const ContactUs: FunctionComponent = () => {
                 className="w-full border-2 rounded-md p-0.5 pl-2"
               />
               <p className="text-red-500">
-                {/* // @ts-ignore */}
                 <ErrorMessage name="phoneNumber" />
               </p>
             </div>
