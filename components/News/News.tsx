@@ -25,7 +25,7 @@ function News({ news }: NewsProps) {
             <div className="grid grid-cols-3 gap-4 space-y-4 md:grid-cols-7 md:space-y-0">
               {Array.from({ length: 21 }, (_, i) => i + 1).map((val) => {
                 let imgPath = `/content_news/atsi_dig_ent_award/${val}.JPG`;
-                return <Image src={imgPath} alt="" layout="fill" />;
+                return <Image key={val} src={imgPath} alt="" layout="fill" />;
               })}
             </div>
             <p>{t("description4")}</p>
