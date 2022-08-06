@@ -20,6 +20,16 @@ function News({ news }: NewsProps) {
       </section>
       <section className="p-4 md:p-8 pt-8 md:pt-16 mb-4 md:mb-8 bg-gray-100">
         <div className="space-y-2">
+          <div className="block-news">
+            <h3>{t("title4")}</h3>
+            <div className="grid grid-cols-3 gap-4 space-y-4 md:grid-cols-7 md:space-y-0">
+              {Array.from({ length: 21 }, (_, i) => i + 1).map((val) => {
+                let imgPath = `/content_news/atsi_dig_ent_award/${val}.JPG`;
+                return <Image src={imgPath} alt="" layout="fill" />;
+              })}
+            </div>
+            <p>{t("description4")}</p>
+          </div>
           <div className="grid grid-cols-1 gap-4 space-y-4 md:grid-cols-2 md:space-y-0">
             <div className="block-news">
               <h3>{t("title1")}</h3>
