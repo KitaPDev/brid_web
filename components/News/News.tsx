@@ -26,7 +26,10 @@ function News({ news }: NewsProps) {
               {Array.from({ length: 9 }, (_, i) => i + 1).map((val) => {
                 let imgPath = `/content_news/atsi_dig_ent_award/${val}.JPG`;
                 return (
-                  <div key={val} className="max-h-full relative">
+                  <div
+                    key={val}
+                    className="max-h-full aspect-w-16 aspect-h-9 relative"
+                  >
                     <Image src={imgPath} alt="" layout="fill" />
                   </div>
                 );
