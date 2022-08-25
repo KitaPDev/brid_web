@@ -108,6 +108,18 @@ function Home({ modules, industries }: HomeProps) {
           </div>
         </div>
       </section>
+      <section className="md:p-8 max-w-6xl mx-auto p-4">
+        <div className="my-8 grid grid-cols-3 md:grid-cols-4 md:gap-8 space-y-4 align-center">
+        <img src="partners/ATSI.png" />
+          <div className="space-y-2">
+            <img src="partners/FTI_ICTI.png" />
+          </div>
+          <img src="partners/FTI.png" />
+          <div className="space-y-2">
+            <img src="partners/ICTI.png" className="h-2/3" />
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
