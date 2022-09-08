@@ -10,7 +10,7 @@ function Module({ modules }: ModuleProps) {
   const { query } = useRouter();
 
   let moduleData: ModuleData | undefined;
-  if (query !== undefined) {
+  if (query !== undefined && modules !== undefined) {
     moduleData = modules.find((m) => m.id.toString() === query.id);
   }
 
