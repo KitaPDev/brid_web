@@ -185,6 +185,14 @@ function NavBar() {
             </div>
           </li>
         </ul>
+        <div className="flex">
+          <li className="mr-6 text-blue-800 text-5xl uppercase font-semibold">
+            <Link href="/">
+              <img src="/brid_systems.jpg">
+              </img>
+            </Link>
+          </li>
+        </div>
       </ul>
     </nav>
   );
