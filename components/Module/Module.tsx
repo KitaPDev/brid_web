@@ -9,8 +9,6 @@ interface ModuleProps {
 function Module({ modules }: ModuleProps) {
   const { query } = useRouter();
 
-  console.log(modules);
-
   let moduleData: ModuleData | undefined;
   if (query !== undefined) {
     moduleData = modules.find((m) => m.id.toString() === query.id);

@@ -1,7 +1,6 @@
 import NavBar from "../../components/NavBar/NavBar";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import http from "../../lib/http";
 import { ContentModuleData, ModuleData } from "../../interfaces/module";
 import Module from "../../components/Module/Module";
 import Footer from "../../components/Footer/Footer";
@@ -108,7 +107,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
