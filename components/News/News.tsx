@@ -134,6 +134,7 @@ function News({ news }: NewsProps) {
                 imageLinks.map((val) => {
                   return (
                         <div
+                          key={imageLinks.indexOf(val)}
                           className="max-h-full aspect-w-16 aspect-h-9 relative"
                         >
                           <img src={val} />
@@ -143,7 +144,7 @@ function News({ news }: NewsProps) {
             }
             </div>
             <p>{t("description5")}</p>
-            <a href="https://www.facebook.com/icticlub/posts/pfbid0zFSH6TFDprrxdZb6jzFNFvpamDCSdmSAAG4H4jJwcqABAM6NVXxnkw1TPqW5W2qel" target="_blank">{t("link_icti_post")}</a>
+            <a href="https://www.facebook.com/icticlub/posts/pfbid0zFSH6TFDprrxdZb6jzFNFvpamDCSdmSAAG4H4jJwcqABAM6NVXxnkw1TPqW5W2qel" target="_blank" rel="noreferrer">{t("link_icti_post")}</a>
           </div>
         </div>
       </section>
