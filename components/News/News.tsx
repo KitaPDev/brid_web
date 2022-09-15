@@ -88,18 +88,17 @@ function News({ news }: NewsProps) {
           <div className="block-news">
             <h3>{t("title5")}</h3>
             <div className="grid grid-cols-1 gap-4 space-y-4 md:grid-cols-3 md:space-y-0">
-              {
-                imageLinks.map((val) => {
-                  return (
-                        <div
-                          key={imageLinks.indexOf(val)}
-                          className="max-h-full aspect-w-16 aspect-h-9 relative"
-                        >
-                          <img src={val} />
-                        </div>
-                      );
-                })
-            }
+              {Array.from({ length: 9 }, (_, i) => i + 1).map((val) => {
+                let imgPath = `/content_news/icti/${val}.jpg`;
+                return (
+                  <div
+                    key={val}
+                    className="max-h-full aspect-w-16 aspect-h-9 relative"
+                  >
+                    <Image src={imgPath} alt="" layout="fill" />
+                  </div>
+                );
+              })}
             </div>
             <p>{t("description5")}</p>
             <a href="https://www.facebook.com/icticlub/posts/pfbid0zFSH6TFDprrxdZb6jzFNFvpamDCSdmSAAG4H4jJwcqABAM6NVXxnkw1TPqW5W2qel" target="_blank" rel="noreferrer">{t("link_icti_post")}</a>
