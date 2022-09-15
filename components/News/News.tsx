@@ -101,7 +101,7 @@ function News({ news }: NewsProps) {
               })}
             </div>
             <p>{t("description5")}</p>
-            <a href="https://www.facebook.com/icticlub/posts/pfbid0zFSH6TFDprrxdZb6jzFNFvpamDCSdmSAAG4H4jJwcqABAM6NVXxnkw1TPqW5W2qel" target="_blank" rel="noreferrer">https://www.facebook.com/163980190293878/posts/pfbid033hwSN35s8LiUxAUx484Tt7pLrVmKL9fQdsDDQsXpe36uZLAk2xGp1frTNoLt4M3Zl/</a>
+            <a href="https://www.facebook.com/icticlub/posts/pfbid0zFSH6TFDprrxdZb6jzFNFvpamDCSdmSAAG4H4jJwcqABAM6NVXxnkw1TPqW5W2qel" target="_blank" rel="noreferrer">https://www.facebook.com/163980190293878/posts/pfbid033hwSN35s8LiUxAUx484Tt7pLrVmKL9fQdsDDQsXpe36uZLAk2xGp1frTNoLt4M3Zl/ Click Here to View Post</a>
           </div>
           <div className="block-news">
             <h3>{t("title3")}</h3>
