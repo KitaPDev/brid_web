@@ -110,13 +110,17 @@ function Home({ modules, industries }: HomeProps) {
       </section>
       <section className="md:p-8 max-w-6xl mx-auto p-4">
         <div className="my-8 grid grid-cols-3 md:grid-cols-4 md:gap-8 space-y-4 align-center">
-        <img src="partners/ATSI.png" />
+          <a href="http://www.atsi.or.th/welcome/" target="_blank" rel="noreferrer"><img src="partners/ATSI.png" /></a>
           <div className="space-y-2">
-            <img src="partners/FTI_ICTI.png" />
+              <a href="https://www.icti.fti.or.th/th" target="_blank" rel="noreferrer"><img src="partners/FTI_ICTI.png" /></a>
           </div>
-          <img src="partners/FTI.png" />
+          <a href="https://fti.or.th/" target="_blank" rel="noreferrer"><img src="partners/FTI.png" /></a>
           <div className="space-y-2">
+          <a href="https://www.icti.fti.or.th/th/news/123147-planetone-erp-%7C-sme-smart-service---%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97-%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%94-%E0%B8%8B%E0%B8%B4%E0%B8%AA%E0%B9%80%E0%B8%95%E0%B9%87%E0%B8%A1%E0%B8%AA%E0%B9%8C-%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD-brid-%28%E0%B8%97%E0%B8%997285%29"
+              target="_blank"
+              rel="noreferrer">
             <img src="partners/ICTI.png" className="h-2/3" />
+          </a>
           </div>
         </div>
       </section>
