@@ -33,6 +33,23 @@ function News({ news }: NewsProps) {
         <div className="space-y-2">
           <div className="block-news">
             <h3>{t("title4")}</h3>
+            <div className="grid grid-cols-1 gap-4 space-y-4 md:grid-cols-2 md:space-y-0">
+              {Array.from({ length: 2 }, (_, i) => i + 1).map((val) => {
+                let imgPath = `/content_news/smart_business_expo/${val}.jpg`;
+                return (
+                  <div
+                    key={val}
+                    className="max-h-full aspect-w-16 aspect-h-9 relative"
+                  >
+                    <Image src={imgPath} alt="" layout="fill" />
+                  </div>
+                );
+              })}
+            </div>
+            <p id="root">{t("description6")}</p>
+          </div>
+          <div className="block-news">
+            <h3>{t("title4")}</h3>
             <div className="grid grid-cols-1 gap-4 space-y-4 md:grid-cols-3 md:space-y-0">
               {Array.from({ length: 9 }, (_, i) => i + 1).map((val) => {
                 let imgPath = `/content_news/atsi_dig_ent_award/${val}.JPG`;
@@ -145,7 +162,7 @@ function News({ news }: NewsProps) {
             </div>
             <p>{t("description3")}</p>
           </div>
-          
+
         </div>
       </section>
     </div>

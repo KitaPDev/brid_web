@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+#root {
+  white-space: pre-line;
+}
+
 .hero-home {
   @apply w-full relative bg-planetone aspect-w-16 aspect-h-10 md:aspect-h-6 bg-cover mb-8;
 }
