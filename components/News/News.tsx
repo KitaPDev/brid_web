@@ -32,7 +32,7 @@ function News({ news }: NewsProps) {
       <section className="p-4 md:p-8 pt-8 md:pt-16 mb-4 md:mb-8 bg-gray-100">
         <div className="space-y-2">
           <div className="block-news">
-            <h3>{t("title4")}</h3>
+            <h3>{t("title6")}</h3>
             <div className="grid grid-cols-1 gap-4 space-y-4 md:grid-cols-2 md:space-y-0">
               {Array.from({ length: 2 }, (_, i) => i + 1).map((val) => {
                 let imgPath = `/content_news/smart_business_expo/${val}.jpg`;
