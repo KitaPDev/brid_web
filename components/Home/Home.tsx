@@ -110,20 +110,21 @@ function Home({ modules, industries }: HomeProps) {
       </section>
       <section className="md:p-8 max-w-6xl mx-auto p-4">
         <div className="my-8 grid grid-cols-3 md:grid-cols-6 md:gap-8 space-y-4 align-center">
-          <a href="http://www.atsi.or.th/welcome/" target="_blank" rel="noreferrer"><img src="partners/ATSI.png" /></a>
+          <a href="http://www.atsi.or.th/welcome/" target="_blank" rel="noreferrer"><img src="partners/ATSI.png" className="h-full" /></a>
           <div className="space-y-2">
-            <a href="https://www.icti.fti.or.th/th" target="_blank" rel="noreferrer"><img src="partners/FTI_ICTI.png" /></a>
+            <a href="https://www.icti.fti.or.th/th" target="_blank" rel="noreferrer" className="flex items-center"><img src="partners/FTI_ICTI.png" /></a>
           </div>
-          <a href="https://fti.or.th/" target="_blank" rel="noreferrer"><img src="partners/FTI.png" /></a>
+          <a href="https://fti.or.th/" target="_blank" rel="noreferrer" className="flex items-center"><img src="partners/FTI.png" /></a>
           <div className="space-y-2">
             <a href="https://www.icti.fti.or.th/th/news/123147-planetone-erp-%7C-sme-smart-service---%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97-%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%94-%E0%B8%8B%E0%B8%B4%E0%B8%AA%E0%B9%80%E0%B8%95%E0%B9%87%E0%B8%A1%E0%B8%AA%E0%B9%8C-%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD-brid-%28%E0%B8%97%E0%B8%997285%29"
               target="_blank"
-              rel="noreferrer">
-              <img src="partners/ICTI.png" className="h-2/3" />
+              rel="noreferrer"
+              >
+              <img src="partners/ICTI.png" className="h-full" />
             </a>
           </div>
-          <a href="https://itap.nstda.or.th/th/ERP-Project/" target="_blank" rel="noreferrer"><img src="partners/ITAP.png" /></a>
-          <a href="https://www.depa.or.th/th/home" target="_blank" rel="noreferrer"><img src="partners/DEPA.png" /></a>
+          <a href="https://itap.nstda.or.th/th/ERP-Project/" target="_blank" rel="noreferrer"><img src="partners/ITAP.png" className="h-full"/></a>
+          <a href="https://www.depa.or.th/th/home" target="_blank" rel="noreferrer"><img src="partners/DEPA.png" className="h-full"/></a>
         </div>
       </section>
       <section className="md:p-8 max-w-6xl mx-auto p-4">
