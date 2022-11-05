@@ -109,7 +109,7 @@ function Home({ modules, industries }: HomeProps) {
         </div>
       </section>
       <section className="md:p-8 max-w-6xl mx-auto p-4">
-        <div className="my-8 grid grid-cols-3 md:grid-cols-4 md:gap-8 space-y-4 align-center">
+        <div className="my-8 grid grid-cols-3 md:grid-cols-6 md:gap-8 space-y-4 align-center">
           <a href="http://www.atsi.or.th/welcome/" target="_blank" rel="noreferrer"><img src="partners/ATSI.png" /></a>
           <div className="space-y-2">
             <a href="https://www.icti.fti.or.th/th" target="_blank" rel="noreferrer"><img src="partners/FTI_ICTI.png" /></a>
@@ -122,12 +122,13 @@ function Home({ modules, industries }: HomeProps) {
               <img src="partners/ICTI.png" className="h-2/3" />
             </a>
           </div>
+          <a href="https://itap.nstda.or.th/th/ERP-Project/" target="_blank" rel="noreferrer"><img src="partners/ITAP.png" /></a>
+          <a href="https://www.depa.or.th/th/home" target="_blank" rel="noreferrer"><img src="partners/DEPA.png" /></a>
         </div>
       </section>
       <section className="md:p-8 max-w-6xl mx-auto p-4">
         <div className="my-8 grid grid-cols-3 md:grid-cols-2 md:gap-8 space-y-4 align-center">
-          <a href="https://itap.nstda.or.th/th/ERP-Project/" target="_blank" rel="noreferrer"><img src="partners/ITAP.png" /></a>
-          <a href="https://www.depa.or.th/th/home" target="_blank" rel="noreferrer"><img src="partners/DEPA.png" /></a>
+          
         </div>
       </section>
     </div>
